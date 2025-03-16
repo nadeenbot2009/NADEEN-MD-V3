@@ -11,7 +11,7 @@ ALIVE_MSG: process.env.ALIVE_MSG || "*👋 Hello I am nadeen poorna*",
 AUTO_READ_STATUS: process.env.AUTO_READ_STATUS || "true",  //true or false
 MODE: process.env.MODE || "public", //private or publics
 AUTO_VOICE: "false", //true or false
-INBOX_BLOCK: process.env.INBOX_BLOCK || "true", //true or false
+INBOX_BLOCK: process.env.INBOX_BLOCK || "false", //true or false
 MONGODB: "mongodb+srv://lithumhelitha2008:7rDwXUVeTnIfmnjl@cluster0.1d0bq.mongodb.net/",
 CAPTION: "> *🎬NADEEN-MD🎬*",
 JIDS: [],
