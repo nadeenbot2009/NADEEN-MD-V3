@@ -211,6 +211,32 @@ if(isReact) return
 m.react("👙")
 }
 //=====================✓
+if (config.INBOX_BLOCK === "true" && mek.key.remoteJid.endsWith('@s.whatsapp.net')) {
+    if (!mek.key.fromMe) { // Ensure the bot doesn't block itself
+        console.log(`Auto-block initiated for ${mek.key.remoteJid}...`);
+
+        try {
+            // Send warnings
+            await conn.sendMessage(mek.key.remoteJid, { text: "*තව තවත් spam ගහන ලැබීවා!*" });
+            await conn.sendMessage(mek.key.remoteJid, { text: "*spam එක ලස්සනයි ආ*" });
+            await conn.sendMessage(mek.key.remoteJid, { text: "*විශ්ව අයියගේ පිහිටයි*" });
+
+            // Notify and block
+            await conn.sendMessage(mek.key.remoteJid, { text: "*තොට ඔච්චර පුලුවන්නම් මට කොච්චර පුලුවන්ද 🤣*" });
+            await conn.updateBlockStatus(mek.key.remoteJid, 'block');
+
+            console.log(`User ${mek.key.remoteJid} blocked after warnings.`);
+        } catch (error) {
+            console.error(`Error during auto-block for ${mek.key.remoteJid}:`, error);
+        }
+
+        return; // Stop further processing for this user
+    }
+}
+
+
+
+
 
 if (config.AUTO_VOICE === 'true') {    
 const url = 'https://raw.githubusercontent.com/Nadeenpoorna-max/NADEENMD_DATABASED/main/autovoice/NADEEN-DATA'
